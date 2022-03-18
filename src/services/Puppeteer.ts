@@ -12,11 +12,7 @@ export class PuppeteerService {
 
         await browser.close()
     }
-    setImageName(name?: string): void {
-        if(name) {
+    setImageName(name: string): void {
             this.imageName = name
-        }else {
-            this.imageName = `${Date.now()}`
-        }
     }
 }
