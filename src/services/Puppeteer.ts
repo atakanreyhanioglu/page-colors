@@ -1,4 +1,4 @@
-import puppeteer from 'puppeteer'
+const puppeteer = require('puppeteer');
 
 export class PuppeteerService {
     async downloadImage(pageUrl: string, imageName?: string): Promise<void> {
