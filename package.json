@@ -4,17 +4,16 @@
   "description": "Get colors from any pages.",
   "main": "index.js",
   "scripts": {
-    "start:build": "tsc",
-    "start:run": "nodemon build/index.js",
-    "start": "concurrently npm:start:*"
+    "start": "tsc && ts-node ./build/index.js"
   },
   "author": "Atakan reyhanioglu",
   "license": "ISC",
   "dependencies": {
-    "concurrently": "^7.0.0",
+    "colorthief": "^2.3.2",
     "puppeteer": "^13.5.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.2"
   }
 }
