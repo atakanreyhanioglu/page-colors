@@ -1,21 +1,19 @@
 const colorThief = require('colorthief');
 
-
 export class ColorThiefService {
-    private readonly imagePath: string;
-    constructor(imagePath: string) {
-        this.imagePath = imagePath
+    private readonly imageName: string;
+    constructor(imageName: string) {
+        this.imageName = `${process.cwd()}/${imageName}.png`
     }
 
-    getColors(): number[] {
-        console.log(this.imagePath)
-        return [1,2]
-        // return colorThief.getPalette('ata', 5)
+    get colors(): Promise<number[][]> {
+        return colorThief.getPalette(this.imageName, 5)
     }
 
-    getDominantColor(): number[][] {
-        return colorThief.getColor('ata')
+    get dominantColor(): Promise<number[]> {
+        return colorThief.getColor(this.imageName)
     }
 }
+
 
 

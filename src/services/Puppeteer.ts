@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer');
 
 export class PuppeteerService {
-    async downloadImage(pageUrl: string, imageName?: string): Promise<void> {
+    static async downloadImage(pageUrl: string, imageName?: string): Promise<void> {
         const browser = await puppeteer.launch({headless: true})
         const page = await browser.newPage()
 
@@ -11,3 +11,4 @@ export class PuppeteerService {
         await browser.close()
     }
 }
+
