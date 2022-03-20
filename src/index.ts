@@ -4,10 +4,15 @@ import {ColorThiefService} from "./services/ColorThief";
 const pageUrl = 'https://google.com'
 const imageName = 'imageName'
 
-const colorThiefService = new ColorThiefService(imageName)
-PuppeteerService.downloadImage(pageUrl, imageName).then(() => {
-    colorThiefService.dominantColor.then(c => console.log(c))
-    colorThiefService.colors.then(c => console.log(c))
-})
+async function main() {
+    await PuppeteerService.downloadImage(pageUrl, imageName)
+    const colorThiefService = new ColorThiefService(imageName)
+    const dominantColor = await colorThiefService.dominantColor
+    const colorPalette = await colorThiefService.colors
+
+    console.log(dominantColor)
+    console.log(colorPalette)
+}
+main()
 
 
